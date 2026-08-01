@@ -46,17 +46,17 @@ export function ProjectsSection() {
                 </CardContent>
                 <CardFooter className="pt-4 flex gap-4 border-t border-border/50">
                   <Button asChild variant="ghost" size="sm" className="hover:bg-primary/10 hover:text-primary">
-                    <Link href={project.github} target="_blank">
+                    <a href={project.github} target="_blank" rel="noopener noreferrer">
                       <FaGithub className="w-4 h-4 mr-2" />
                       Code
-                    </Link>
+                    </a>
                   </Button>
                   {project.demo && (
                     <Button asChild variant="ghost" size="sm" className="hover:bg-primary/10 hover:text-primary">
-                      <Link href={project.demo} target="_blank">
+                      <a href={project.demo} target="_blank" rel="noopener noreferrer">
                         <ExternalLink className="w-4 h-4 mr-2" />
                         Live Demo
-                      </Link>
+                      </a>
                     </Button>
                   )}
                 </CardFooter>
@@ -75,7 +75,7 @@ export function ProjectsSection() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {portfolioData.experiments.map((exp, idx) => (
             <FadeIn key={exp.title} direction="up" delay={0.05 * idx}>
-              <Link href={exp.github} target="_blank" className="block group">
+              <a href={exp.github} target="_blank" rel="noopener noreferrer" className="block group">
                 <Card className="bg-background border-border hover:border-primary/50 hover:bg-secondary/50 transition-all">
                   <CardContent className="p-4 flex items-center justify-between">
                     <span className="font-medium text-sm group-hover:text-primary transition-colors">
@@ -84,7 +84,7 @@ export function ProjectsSection() {
                     <FaGithub className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" />
                   </CardContent>
                 </Card>
-              </Link>
+              </a>
             </FadeIn>
           ))}
         </div>

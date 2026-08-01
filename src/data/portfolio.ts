@@ -111,7 +111,7 @@ export const portfolioData = {
         "Developed a modular content distribution engine polling Google Sheets, auto-publishing to YouTube and Instagram Reels via Meta Graph API.",
         "Implemented async branching, parallel execution, and web search integration for multi-step agentic workflows.",
       ],
-      github: "https://github.com/AliRaza-Dev678",
+      github: "https://github.com/AliRaza-Dev678/ai-assistant-pipelines",
       demo: "",
     },
     {
@@ -122,7 +122,7 @@ export const portfolioData = {
         "Secure JWT auth, role-aware authorization, real-time WebSockets, Groq-powered insights.",
         "Redis caching, Celery background reports, CSV exports, containerized with Docker Compose.",
       ],
-      github: "https://github.com/AliRaza-Dev678",
+      github: "https://github.com/AliRaza-Dev678/workspace-platform",
       demo: "",
     },
     {
@@ -132,7 +132,7 @@ export const portfolioData = {
         "Production-style assistant serving Groq-hosted gpt-oss-120b via LangGraph.",
         "Token-by-token streaming, persistent conversations, stop/regenerate controls, Markdown rendering.",
       ],
-      github: "https://github.com/AliRaza-Dev678",
+      github: "https://github.com/AliRaza-Dev678/chatgpt-clone",
       demo: "",
     },
     {
@@ -142,7 +142,7 @@ export const portfolioData = {
         "RAG assistants ingesting university PDFs and YouTube transcripts (via yt-dlp) into PGVector.",
         "Grounded answer generation with Llama 3.1 via Groq and MMR retrieval, Streamlit UI.",
       ],
-      github: "https://github.com/AliRaza-Dev678",
+      github: "https://github.com/AliRaza-Dev678/rag-chatbots",
       demo: "",
     },
   ],
