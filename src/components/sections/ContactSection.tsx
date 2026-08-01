@@ -18,22 +18,23 @@ export function ContactSection() {
     setIsSubmitting(true);
     setSubmitStatus("idle");
 
-    const formData = new FormData(e.currentTarget);
-    // Replace YOUR_ACCESS_KEY_HERE with your actual Web3Forms access key from https://web3forms.com/
-    formData.append("access_key", "YOUR_ACCESS_KEY_HERE");
-
     try {
-      const response = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        body: formData,
-      });
+      const formData = new FormData(e.currentTarget);
+      const name = formData.get("name") as string;
+      const email = formData.get("email") as string;
+      const subject = formData.get("subject") as string;
+      const message = formData.get("message") as string;
 
-      if (response.ok) {
-        setSubmitStatus("success");
-        e.currentTarget.reset();
-      } else {
-        setSubmitStatus("error");
-      }
+      const mailtoLink = `mailto:${portfolioData.personal.email}?subject=${encodeURIComponent(
+        subject || "Portfolio Contact"
+      )}&body=${encodeURIComponent(
+        `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
+      )}`;
+
+      window.location.href = mailtoLink;
+      
+      setSubmitStatus("success");
+      e.currentTarget.reset();
     } catch {
       setSubmitStatus("error");
     } finally {
