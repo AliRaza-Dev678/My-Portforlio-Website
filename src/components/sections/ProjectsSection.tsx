@@ -5,7 +5,6 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ExternalLink } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
-import Link from "next/link";
 
 export function ProjectsSection() {
   return (
