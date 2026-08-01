@@ -25,13 +25,13 @@ export function ContactSection() {
       const subject = formData.get("subject") as string;
       const message = formData.get("message") as string;
 
-      const mailtoLink = `mailto:${portfolioData.personal.email}?subject=${encodeURIComponent(
+      const gmailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=${portfolioData.personal.email}&su=${encodeURIComponent(
         subject || "Portfolio Contact"
       )}&body=${encodeURIComponent(
         `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
       )}`;
 
-      window.location.href = mailtoLink;
+      window.open(gmailLink, '_blank');
       
       setSubmitStatus("success");
       e.currentTarget.reset();
