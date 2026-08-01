@@ -6,7 +6,7 @@ export const portfolioData = {
     location: "Multan, Pakistan",
     email: "aliraza.ai.dev3@gmail.com",
     phone: "+92 324 5892281",
-    linkedin: "https://linkedin.com/in/ali-raza-597b01360",
+    linkedin: "https://www.linkedin.com/in/ali-raza-597b013b0/",
     github: "https://github.com/AliRaza-Dev678",
     about:
       "I am a Full-Stack AI Engineer and Software Engineering undergraduate passionate about building intelligent products. My expertise spans React/TypeScript frontends, FastAPI services, PostgreSQL/Redis data layers, LLM workflows, and n8n automation pipelines. I've designed containerized AI-powered workspace platforms with secure authentication, real-time WebSocket communication, and Groq-powered insights. Beyond web development, I have hands-on experience with document and video RAG, LangGraph agents, NLP, and computer vision, always focusing on turning AI prototypes into complete, usable software systems.",
@@ -111,7 +111,7 @@ export const portfolioData = {
         "Developed a modular content distribution engine polling Google Sheets, auto-publishing to YouTube and Instagram Reels via Meta Graph API.",
         "Implemented async branching, parallel execution, and web search integration for multi-step agentic workflows.",
       ],
-      github: "https://github.com/AliRaza-Dev678/ai-assistant-pipelines", // Placeholder
+      github: "https://github.com/AliRaza-Dev678",
       demo: "",
     },
     {
@@ -122,7 +122,7 @@ export const portfolioData = {
         "Secure JWT auth, role-aware authorization, real-time WebSockets, Groq-powered insights.",
         "Redis caching, Celery background reports, CSV exports, containerized with Docker Compose.",
       ],
-      github: "https://github.com/AliRaza-Dev678/workspace-platform", // Placeholder
+      github: "https://github.com/AliRaza-Dev678",
       demo: "",
     },
     {
@@ -132,7 +132,7 @@ export const portfolioData = {
         "Production-style assistant serving Groq-hosted gpt-oss-120b via LangGraph.",
         "Token-by-token streaming, persistent conversations, stop/regenerate controls, Markdown rendering.",
       ],
-      github: "https://github.com/AliRaza-Dev678/chatgpt-clone", // Placeholder
+      github: "https://github.com/AliRaza-Dev678",
       demo: "",
     },
     {
@@ -142,7 +142,7 @@ export const portfolioData = {
         "RAG assistants ingesting university PDFs and YouTube transcripts (via yt-dlp) into PGVector.",
         "Grounded answer generation with Llama 3.1 via Groq and MMR retrieval, Streamlit UI.",
       ],
-      github: "https://github.com/AliRaza-Dev678/rag-chatbots", // Placeholder
+      github: "https://github.com/AliRaza-Dev678",
       demo: "",
     },
   ],
