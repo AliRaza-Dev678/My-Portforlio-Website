@@ -47,6 +47,8 @@ export const portfolioData = {
       "TypeScript",
       "JavaScript",
       "Vite",
+      "Flutter",
+      "Dart",
       "REST APIs",
       "WebSockets",
       "JWT/OAuth2",
@@ -54,6 +56,8 @@ export const portfolioData = {
     ],
     ai: [
       "RAG pipelines",
+      "Self-RAG",
+      "CRAG",
       "Agentic systems",
       "Prompt engineering",
       "Embeddings",
@@ -89,6 +93,12 @@ export const portfolioData = {
       "LSTMs",
       "Transfer learning",
       "ResNet50",
+      "SVM",
+      "Random Forest",
+      "Decision Trees",
+      "K-Means Clustering",
+      "Naive Bayes",
+      "Linear Regression",
     ],
     devops: [
       "n8n",
@@ -111,7 +121,7 @@ export const portfolioData = {
         "Developed a modular content distribution engine polling Google Sheets, auto-publishing to YouTube and Instagram Reels via Meta Graph API.",
         "Implemented async branching, parallel execution, and web search integration for multi-step agentic workflows.",
       ],
-      github: "https://github.com/AliRaza-Dev678/ai-assistant-pipelines",
+      github: "https://github.com/AliRaza-Dev678/n8n-Personal-Agent",
       demo: "",
     },
     {
@@ -122,7 +132,7 @@ export const portfolioData = {
         "Secure JWT auth, role-aware authorization, real-time WebSockets, Groq-powered insights.",
         "Redis caching, Celery background reports, CSV exports, containerized with Docker Compose.",
       ],
-      github: "https://github.com/AliRaza-Dev678/workspace-platform",
+      github: "https://github.com/AliRaza-Dev678/Ai_Powered_Workspace_Management_Platform",
       demo: "",
     },
     {
@@ -132,7 +142,7 @@ export const portfolioData = {
         "Production-style assistant serving Groq-hosted gpt-oss-120b via LangGraph.",
         "Token-by-token streaming, persistent conversations, stop/regenerate controls, Markdown rendering.",
       ],
-      github: "https://github.com/AliRaza-Dev678/chatgpt-clone",
+      github: "https://github.com/AliRaza-Dev678/My-Assistant-Gpt-Clone-",
       demo: "",
     },
     {
@@ -142,34 +152,34 @@ export const portfolioData = {
         "RAG assistants ingesting university PDFs and YouTube transcripts (via yt-dlp) into PGVector.",
         "Grounded answer generation with Llama 3.1 via Groq and MMR retrieval, Streamlit UI.",
       ],
-      github: "https://github.com/AliRaza-Dev678/rag-chatbots",
+      github: "https://github.com/AliRaza-Dev678/IUB-RAG-CHATBOT",
       demo: "",
     },
   ],
   experiments: [
     {
       title: "Cat vs Dog Classification",
-      github: "https://github.com/AliRaza-Dev678/Cat-vs-Dog-Classification",
+      github: "https://github.com/AliRaza-Dev678/Cat_vs_Dog_Classification_with_NeuralNetwork_DeepLearning_Project",
     },
     {
       title: "CIFAR-10 Object Recognition",
-      github: "https://github.com/AliRaza-Dev678/CIFAR-10-Object-Recognition",
+      github: "https://github.com/AliRaza-Dev678/CIFAR_10_Object_Recognition_Using_ResNet50_Deep-Learning_Project",
     },
     {
       title: "Face Mask Detection",
-      github: "https://github.com/AliRaza-Dev678/Face-Mask-Detection",
+      github: "https://github.com/AliRaza-Dev678/Face_Mask_Detection_using_CNN_DeepLearning_Project",
     },
     {
       title: "Fake News Detector",
-      github: "https://github.com/AliRaza-Dev678/Fake-News-Detector",
+      github: "https://github.com/AliRaza-Dev678/Fake_News_Detector",
     },
     {
       title: "Fashion MNIST",
-      github: "https://github.com/AliRaza-Dev678/Fashion-MNIST",
+      github: "https://github.com/AliRaza-Dev678/Fashion_MNIST_using_CNN_Model_DeepLearning_Project",
     },
     {
       title: "MNIST Digits Classification",
-      github: "https://github.com/AliRaza-Dev678/MNIST-Digits-Classification",
+      github: "https://github.com/AliRaza-Dev678/MNIST_Digits_Classification_Using_Neural_Network_DeepLearning_Project",
     },
   ],
 };
