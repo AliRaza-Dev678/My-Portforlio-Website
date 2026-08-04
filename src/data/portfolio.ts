@@ -71,6 +71,7 @@ export const portfolioData = {
       "Llama models",
       "Anthropic",
       "OpenAI models",
+      "LangSmith",
     ],
     data: [
       "PostgreSQL",
@@ -133,7 +134,7 @@ export const portfolioData = {
         "Redis caching, Celery background reports, CSV exports, containerized with Docker Compose.",
       ],
       github: "https://github.com/AliRaza-Dev678/Ai_Powered_Workspace_Management_Platform",
-      demo: "",
+      demo: "https://ai-powered-workspace-management.vercel.app",
     },
     {
       title: "AI Chat Assistant (ChatGPT Clone)",
@@ -143,7 +144,7 @@ export const portfolioData = {
         "Token-by-token streaming, persistent conversations, stop/regenerate controls, Markdown rendering.",
       ],
       github: "https://github.com/AliRaza-Dev678/My-Assistant-Gpt-Clone-",
-      demo: "",
+      demo: "https://ali-raza-assistant-web.vercel.app",
     },
     {
       title: "IUB University & YouTube RAG Chatbots",
@@ -180,6 +181,26 @@ export const portfolioData = {
     {
       title: "MNIST Digits Classification",
       github: "https://github.com/AliRaza-Dev678/MNIST_Digits_Classification_Using_Neural_Network_DeepLearning_Project",
+    },
+    {
+      title: "Breast Cancer Classification",
+      github: "https://github.com/AliRaza-Dev678/Breast_Cancer_Classification_with_Neural_Network_DeepLearning_Project",
+    },
+    {
+      title: "Heart Disease Prediction",
+      github: "https://github.com/AliRaza-Dev678/Heart_Disease_Prediction_Model",
+    },
+    {
+      title: "Movie Review Sentiment Analysis",
+      github: "https://github.com/AliRaza-Dev678/Movie_Review_Sentiment_Analysis",
+    },
+    {
+      title: "Credit Card Fraud Detection",
+      github: "https://github.com/AliRaza-Dev678/Credit_Card_Fraud_Detection_Model",
+    },
+    {
+      title: "Titanic Survival Prediction",
+      github: "https://github.com/AliRaza-Dev678/Titanic_Survival_Prediction_Model",
     },
   ],
 };
