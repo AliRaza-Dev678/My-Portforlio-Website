@@ -103,7 +103,8 @@ export const portfolioData = {
     ],
     devops: [
       "n8n",
-      "Make.com"
+      "Make.com",
+      "Zapier",
       "Docker Compose",
       "Streamlit",
       "Git/GitHub",
