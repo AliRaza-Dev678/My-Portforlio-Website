@@ -105,14 +105,14 @@ export const portfolioData = {
       "n8n",
       "Make.com",
       "Zapier",
+      "GHL",
       "Docker Compose",
       "Streamlit",
       "Git/GitHub",
       "Jupyter",
       "Colab",
       "OpenAPI/Swagger",
-      "Kaggle",
-      "GHL",
+      "Kaggle"
     ],
   },
   projects: [
