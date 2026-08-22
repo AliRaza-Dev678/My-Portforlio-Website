@@ -30,7 +30,7 @@ export async function POST(req: Request) {
   });
 
   // Prefer Groq if key exists, otherwise fallback to standard OpenAI
-  const modelStr = useGroq ? 'llama-3.3-70b-versatile' : 'gpt-4o-mini';
+  const modelStr = useGroq ? 'openai/gpt-oss-120b' : 'gpt-4o-mini';
   
   const aiProvider = useGroq ? groq.chat(modelStr) : openai.chat(modelStr);
 
