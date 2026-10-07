@@ -9,7 +9,7 @@ export function ThemeProvider({
 }: React.ComponentProps<typeof NextThemesProvider>) {
   return (
     <NextThemesProvider 
-      themes={['light', 'dark', 'theme-midnight', 'theme-cyberpunk', 'theme-forest', 'theme-sunset']} 
+      themes={['light', 'dark']} 
       {...props}
     >
       {children}

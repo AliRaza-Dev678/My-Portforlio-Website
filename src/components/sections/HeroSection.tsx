@@ -1,88 +1,78 @@
-import { portfolioData } from "@/data/portfolio";
-import { FadeIn } from "@/components/animations/FadeIn";
-import { Button } from "@/components/ui/button";
-import { Download, ArrowRight } from "lucide-react";
-import { FaGithub, FaLinkedin } from "react-icons/fa";
+import Image from "next/image";
 import Link from "next/link";
-import { NeuralNetwork3D } from "@/components/animations/NeuralNetwork3D";
+import { portfolioData } from "@/data/portfolio";
+import { buttonVariants } from "@/components/ui/button";
+import { BookCallButton } from "@/components/booking/BookCallButton";
+import { cn } from "@/lib/utils";
 
 export function HeroSection() {
+  const { personal, heroTrace } = portfolioData;
+
   return (
-    <section id="hero" className="min-h-screen flex flex-col justify-center pt-20 relative overflow-hidden">
-      {/* 3D Background */}
-      <NeuralNetwork3D />
+    <section id="top" className="pb-16 pt-28 md:pb-24 md:pt-36">
+      <div className="shell grid items-center gap-12 lg:grid-cols-12 lg:gap-10">
+        <div className="lg:col-span-7">
+          <p className="mb-6 flex items-center gap-3 text-base text-muted-foreground">
+            <Image
+              src="/profile.jpg"
+              alt=""
+              width={44}
+              height={44}
+              priority
+              className="h-11 w-11 rounded-full object-cover object-top"
+            />
+            <span>
+              <span className="font-medium text-foreground">{personal.name}</span>, {personal.title}
+            </span>
+          </p>
 
-      <div className="container mx-auto px-4 md:px-6 relative z-10">
-        <div className="max-w-4xl mx-auto text-center">
-          <FadeIn direction="up" delay={0.1}>
-            <div className="inline-block mb-4 px-3 py-1 rounded-full bg-secondary text-secondary-foreground text-sm font-medium font-mono border border-border">
-              Hello World {"->"} I am
-            </div>
-          </FadeIn>
-          
-          <FadeIn direction="up" delay={0.2}>
-            <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6">
-              {portfolioData.personal.name}
-            </h1>
-          </FadeIn>
+          <h1 className="text-[2.6rem] font-semibold leading-[1.05] tracking-tight sm:text-6xl lg:text-[4.25rem]">
+            {personal.pitch}
+          </h1>
 
-          <FadeIn direction="up" delay={0.3}>
-            <h2 className="text-2xl md:text-4xl text-primary font-semibold mb-6">
-              {portfolioData.personal.title}
-            </h2>
-          </FadeIn>
+          <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground md:text-xl">
+            {personal.pitchDetail}
+          </p>
 
-          <FadeIn direction="up" delay={0.4}>
-            <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto leading-relaxed">
-              {portfolioData.personal.tagline}
-            </p>
-          </FadeIn>
-
-          <FadeIn direction="up" delay={0.5}>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button asChild size="lg" className="w-full sm:w-auto h-12 px-8 group rounded-full">
-                <Link href="#projects">
-                  View Projects
-                  <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Link>
-              </Button>
-              
-              <Button asChild variant="outline" size="lg" className="w-full sm:w-auto h-12 px-8 rounded-full border-primary/50 hover:border-primary">
-                <a href="/CV_Ali_Raza.pdf" download="CV_Ali_Raza.pdf">
-                  <Download className="mr-2 w-4 h-4" />
-                  Download CV
-                </a>
-              </Button>
-              
-              <Button asChild variant="ghost" size="icon" className="h-12 w-12 rounded-full border border-border hidden sm:flex">
-                <Link href={portfolioData.personal.github} target="_blank">
-                  <FaGithub className="w-5 h-5" />
-                  <span className="sr-only">GitHub</span>
-                </Link>
-              </Button>
-              
-              <Button asChild variant="ghost" size="icon" className="h-12 w-12 rounded-full border border-border hidden sm:flex">
-                <Link href={portfolioData.personal.linkedin} target="_blank">
-                  <FaLinkedin className="w-5 h-5" />
-                  <span className="sr-only">LinkedIn</span>
-                </Link>
-              </Button>
-              
-              <div className="flex sm:hidden gap-4 mt-2">
-                <Button asChild variant="outline" size="icon" className="h-12 w-12 rounded-full">
-                  <Link href={portfolioData.personal.github} target="_blank">
-                    <FaGithub className="w-5 h-5" />
-                  </Link>
-                </Button>
-                <Button asChild variant="outline" size="icon" className="h-12 w-12 rounded-full">
-                  <Link href={portfolioData.personal.linkedin} target="_blank">
-                    <FaLinkedin className="w-5 h-5" />
-                  </Link>
-                </Button>
-              </div>
-            </div>
-          </FadeIn>
+          <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+            <BookCallButton section="hero" size="lg" />
+            <Link href="/#work" className={cn(buttonVariants({ variant: "outline", size: "lg" }))}>
+              View projects
+            </Link>
+          </div>
         </div>
+
+        {/* A real flow from the voice agent project, shown as the system it is. */}
+        <figure className="lg:col-span-5">
+          <ol className="relative rounded-lg border border-border bg-card p-6 md:p-7">
+            {heroTrace.steps.map((step, i) => (
+              <li
+                key={step.text}
+                className="trace-step relative flex gap-4 pb-6 last:pb-0"
+                style={{ "--i": i } as React.CSSProperties}
+              >
+                {i < heroTrace.steps.length - 1 && (
+                  <span className="absolute left-[7px] top-5 h-full w-px bg-border" aria-hidden="true" />
+                )}
+                <span
+                  className="trace-node relative mt-1 h-[15px] w-[15px] shrink-0 rounded-full border-2 border-primary"
+                  style={{ "--i": i } as React.CSSProperties}
+                  aria-hidden="true"
+                />
+                <span>
+                  <span className="block font-medium leading-snug">{step.text}</span>
+                  <span className="mt-0.5 block text-sm text-muted-foreground">{step.tool}</span>
+                </span>
+              </li>
+            ))}
+          </ol>
+          <figcaption className="mt-3 text-sm text-muted-foreground">
+            {heroTrace.caption}.{" "}
+            <Link href={`/projects/${heroTrace.slug}`} className="text-link">
+              Read the case study
+            </Link>
+          </figcaption>
+        </figure>
       </div>
     </section>
   );

@@ -1,48 +1,43 @@
-import { Mail } from "lucide-react";
+import { Download, Mail } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
-import Link from "next/link";
-import { portfolioData } from "@/data/portfolio";
+import { portfolioData, site } from "@/data/portfolio";
 
 export function Footer() {
+  const { personal } = portfolioData;
+  const linkClass = "inline-flex items-center gap-2 text-sm hover:underline hover:underline-offset-4";
+
   return (
-    <footer className="border-t border-border bg-background py-10">
-      <div className="container mx-auto px-4 flex flex-col items-center justify-center gap-6">
-        <div className="flex items-center gap-6">
-          <Link
-            href={portfolioData.personal.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-muted-foreground hover:text-foreground transition-colors scale-110"
-          >
-            <FaGithub className="w-6 h-6" />
-            <span className="sr-only">GitHub</span>
-          </Link>
-          <Link
-            href={portfolioData.personal.linkedin}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-muted-foreground hover:text-foreground transition-colors scale-110"
-          >
-            <FaLinkedin className="w-6 h-6" />
-            <span className="sr-only">LinkedIn</span>
-          </Link>
-          <Link
-            href={`mailto:${portfolioData.personal.email}`}
-            className="text-muted-foreground hover:text-foreground transition-colors scale-110"
-          >
-            <Mail className="w-6 h-6" />
-            <span className="sr-only">Email</span>
-          </Link>
-        </div>
-        
-        <div className="text-center mt-2">
-          <p className="text-sm text-muted-foreground">
-            &copy; {new Date().getFullYear()} {portfolioData.personal.name}. All rights reserved.
-          </p>
-          <p className="text-xs text-muted-foreground mt-2">
-            Built with Next.js, Tailwind CSS & Framer Motion
-          </p>
-        </div>
+    <footer className="border-t border-border bg-card pb-24 pt-10 md:pb-10">
+      <div className="shell flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+        <p className="text-sm text-muted-foreground">
+          &copy; {new Date().getFullYear()} {personal.name}, {personal.title}
+        </p>
+        <ul className="flex flex-wrap gap-x-6 gap-y-3">
+          <li>
+            <a href={`mailto:${personal.email}`} className={linkClass}>
+              <Mail className="h-4 w-4" aria-hidden="true" />
+              {personal.email}
+            </a>
+          </li>
+          <li>
+            <a href={personal.github} target="_blank" rel="noopener noreferrer" className={linkClass}>
+              <FaGithub className="h-4 w-4" aria-hidden="true" />
+              GitHub
+            </a>
+          </li>
+          <li>
+            <a href={personal.linkedin} target="_blank" rel="noopener noreferrer" className={linkClass}>
+              <FaLinkedin className="h-4 w-4" aria-hidden="true" />
+              LinkedIn
+            </a>
+          </li>
+          <li>
+            <a href={site.cvPath} download="Ali-Raza-CV.pdf" className={linkClass}>
+              <Download className="h-4 w-4" aria-hidden="true" />
+              Download CV
+            </a>
+          </li>
+        </ul>
       </div>
     </footer>
   );
