@@ -1,89 +1,67 @@
 "use client";
 
 import Link from "next/link";
-import { ThemeToggle } from "@/components/ThemeToggle";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import { ThemeToggle } from "@/components/ThemeToggle";
+import { BookCallButton } from "@/components/booking/BookCallButton";
+
+const navLinks = [
+  { name: "Case studies", href: "/#work" },
+  { name: "Skills", href: "/#skills" },
+  { name: "Experience", href: "/#experience" },
+  { name: "Education", href: "/#education" },
+];
 
 export function Navbar() {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const navLinks = [
-    { name: "About", href: "#about" },
-    { name: "Skills", href: "#skills" },
-    { name: "Projects", href: "#projects" },
-    { name: "Experience", href: "#experience" },
-    { name: "Contact", href: "#contact" },
-  ];
+  const [open, setOpen] = useState(false);
 
   return (
-    <header
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        isScrolled
-          ? "bg-background/80 backdrop-blur-md border-b border-border shadow-sm py-3"
-          : "bg-transparent py-5"
-      }`}
-    >
-      <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
-        <Link
-          href="/"
-          className="text-xl font-bold font-mono tracking-tighter hover:text-primary transition-colors"
-        >
-          <span className="text-primary">{"<"}</span>
-          AliRaza
-          <span className="text-primary">{"/>"}</span>
+    <header className="fixed top-0 z-40 w-full border-b border-border bg-background/90 backdrop-blur">
+      <div className="shell flex h-16 items-center justify-between gap-4">
+        <Link href="/" className="font-display text-lg font-semibold tracking-tight">
+          Ali Raza
         </Link>
 
-        {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-6">
+        <nav aria-label="Main" className="hidden items-center gap-7 md:flex">
           {navLinks.map((link) => (
-            <Link
-              key={link.name}
-              href={link.href}
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-            >
+            <Link key={link.name} href={link.href} className="text-sm font-medium text-muted-foreground hover:text-foreground">
               {link.name}
             </Link>
           ))}
-          <ThemeToggle />
         </nav>
 
-        {/* Mobile Toggle */}
-        <div className="flex items-center gap-4 md:hidden">
+        <div className="flex items-center gap-2">
           <ThemeToggle />
+          <BookCallButton section="nav" size="sm" icon={false} className="hidden sm:inline-flex" />
           <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="text-foreground focus:outline-none"
-            aria-label="Toggle menu"
+            type="button"
+            onClick={() => setOpen(!open)}
+            className="inline-flex h-10 w-10 items-center justify-center rounded-full md:hidden"
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
+            aria-controls="mobile-nav"
           >
-            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            {open ? <X size={22} aria-hidden="true" /> : <Menu size={22} aria-hidden="true" />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Menu */}
-      {mobileMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 w-full bg-background border-b border-border shadow-lg py-4 px-4 flex flex-col gap-4">
-          {navLinks.map((link) => (
-            <Link
-              key={link.name}
-              href={link.href}
-              onClick={() => setMobileMenuOpen(false)}
-              className="text-base font-medium text-muted-foreground hover:text-foreground transition-colors py-2 border-b border-border/50 last:border-0"
-            >
-              {link.name}
-            </Link>
-          ))}
-        </div>
+      {open && (
+        <nav id="mobile-nav" aria-label="Main" className="border-t border-border bg-background md:hidden">
+          <ul className="shell flex flex-col py-2">
+            {navLinks.map((link) => (
+              <li key={link.name}>
+                <Link href={link.href} onClick={() => setOpen(false)} className="block py-3 text-base font-medium">
+                  {link.name}
+                </Link>
+              </li>
+            ))}
+            <li className="py-3">
+              <BookCallButton section="nav-mobile" className="w-full" />
+            </li>
+          </ul>
+        </nav>
       )}
     </header>
   );

@@ -2,25 +2,21 @@
   <br />
   <h1>🚀 Ali Raza | Full-Stack AI Engineer Portfolio</h1>
   <p>
-    An interactive, 3D-powered personal portfolio showcasing cutting-edge AI integrations, professional experience, and technical expertise. Built with Next.js, React Three Fiber, and the Vercel AI SDK.
+    Portfolio of Ali Raza, Full-Stack AI Engineer: case studies, Calendly booking, and the RazaMind assistant. Built with Next.js, Tailwind CSS, and the Vercel AI SDK. All content lives in `src/data/portfolio.ts` and mirrors the CV.
   </p>
   <br />
 </div>
 
 ## ✨ Features
 
-- **🌐 3D Interactive Environment:** Stunning 3D visuals and background effects powered by `react-three-fiber` and `three.js`.
 - **🤖 RazaMind Chatbot:** A fully integrated, intelligent AI assistant capable of answering questions about my background, skills, and projects in real-time, built with the Vercel AI SDK.
 - **⚡ Next.js 14 & React:** Blazing fast performance with App Router and server-side rendering.
-- **🎨 Tailwind CSS & Framer Motion:** Beautiful, responsive UI with buttery-smooth micro-animations.
 - **📱 Fully Responsive:** Optimized for desktops, tablets, and mobile devices.
 
 ## 🛠️ Tech Stack
 
 - **Framework:** [Next.js (App Router)](https://nextjs.org/)
 - **Styling:** [Tailwind CSS](https://tailwindcss.com/)
-- **Animations:** [Framer Motion](https://www.framer.com/motion/)
-- **3D Graphics:** [React Three Fiber](https://docs.pmnd.rs/react-three-fiber/) & [Drei](https://github.com/pmndrs/drei)
 - **AI Integration:** [Vercel AI SDK](https://sdk.vercel.ai/docs) & [Groq API](https://groq.com/)
 - **Deployment:** [Vercel](https://vercel.com/)
 

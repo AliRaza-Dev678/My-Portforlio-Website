@@ -1,27 +1,55 @@
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { HeroSection } from "@/components/sections/HeroSection";
-import { AboutSection } from "@/components/sections/AboutSection";
+import { ProofStrip } from "@/components/sections/ProofStrip";
+import { CaseStudiesSection } from "@/components/sections/CaseStudiesSection";
+import { MoreProjectsSection } from "@/components/sections/MoreProjectsSection";
 import { SkillsSection } from "@/components/sections/SkillsSection";
-import { ProjectsSection } from "@/components/sections/ProjectsSection";
 import { ExperienceSection } from "@/components/sections/ExperienceSection";
 import { EducationSection } from "@/components/sections/EducationSection";
-import { ContactSection } from "@/components/sections/ContactSection";
+import { BookingSection } from "@/components/sections/BookingSection";
+import { StickyBookBar } from "@/components/booking/StickyBookBar";
+import { JsonLd } from "@/components/JsonLd";
+import { portfolioData, site } from "@/data/portfolio";
 
 export default function Home() {
+  const { personal, education, skills } = portfolioData;
+
   return (
-    <div className="min-h-screen flex flex-col">
+    <>
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "Person",
+          name: personal.name,
+          jobTitle: personal.title,
+          description: site.description,
+          url: site.url,
+          image: `${site.url}/profile.jpg`,
+          email: `mailto:${personal.email}`,
+          telephone: personal.phone,
+          address: { "@type": "PostalAddress", addressLocality: "Multan", addressCountry: "PK" },
+          alumniOf: {
+            "@type": "CollegeOrUniversity",
+            name: education[0].institution,
+          },
+          sameAs: [personal.github, personal.linkedin],
+          knowsAbout: skills.map((s) => s.group),
+        }}
+      />
       <Navbar />
-      <main className="flex-1">
+      <main id="main">
         <HeroSection />
-        <AboutSection />
+        <ProofStrip />
+        <CaseStudiesSection />
+        <MoreProjectsSection />
         <SkillsSection />
-        <ProjectsSection />
         <ExperienceSection />
         <EducationSection />
-        <ContactSection />
+        <BookingSection />
       </main>
       <Footer />
-    </div>
+      <StickyBookBar />
+    </>
   );
 }
