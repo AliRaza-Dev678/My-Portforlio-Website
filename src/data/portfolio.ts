@@ -60,6 +60,11 @@ export const portfolioData = {
       role: "AI Operations Specialist",
       company: "Signature BPO & Marketing Services",
       since: "Oct 2026",
+      city: "Jhang",
+      location: "Jhang, Punjab, Pakistan",
+      workplace: "On-site",
+      type: "Full-time",
+      focus: "Automation & AI Workflow Development",
     },
     summary:
       "Full-Stack AI Engineer and Software Engineering undergraduate building intelligent products across React/TypeScript and Next.js frontends, FastAPI services, PostgreSQL/Redis data layers, LLM and agentic workflows, real-time voice AI agents, and n8n / Make.com / GoHighLevel automation pipelines. Further experience spans document and video RAG (SelfRAG and CRAG patterns), LangGraph agents, LangSmith tracing, Flutter mobile development, NLP, and computer vision, with a focus on turning AI prototypes into complete, usable software systems.",
