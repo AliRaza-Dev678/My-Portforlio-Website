@@ -1,5 +1,5 @@
 // Single source of truth for the site and for RazaMind's knowledge base.
-// Every fact here mirrors public/CV_Ali_Raza.pdf. Update the CV first, then this file.
+// Facts mirror public/CV_Ali_Raza.pdf; roles and dates in `experience` follow LinkedIn.
 
 export const site = {
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://ali-raza-engineer.vercel.app",
@@ -29,6 +29,8 @@ export type CaseStudy = {
   /** Ordered steps of the system, shown as "How it works" on the case study page. */
   flow?: { tool: string; text: string }[];
   videos?: { title: string; embedUrl: string; watchUrl: string }[];
+  /** Short list shown large on the home panel, with a caption. */
+  highlights?: { items: string[]; caption: string };
 };
 
 const GH = "https://github.com/AliRaza-Dev678";
@@ -52,8 +54,13 @@ export const portfolioData = {
     location: "Multan, Pakistan",
     email: "aliraza.ai.dev3@gmail.com",
     phone: "+92 324 5892281",
-    linkedin: "https://www.linkedin.com/in/ali-raza-597b013b0/",
+    linkedin: "https://www.linkedin.com/in/aliraza-aiengineer/",
     github: GH,
+    current: {
+      role: "AI Operations Specialist",
+      company: "Signature BPO & Marketing Services",
+      since: "Oct 2026",
+    },
     summary:
       "Full-Stack AI Engineer and Software Engineering undergraduate building intelligent products across React/TypeScript and Next.js frontends, FastAPI services, PostgreSQL/Redis data layers, LLM and agentic workflows, real-time voice AI agents, and n8n / Make.com / GoHighLevel automation pipelines. Further experience spans document and video RAG (SelfRAG and CRAG patterns), LangGraph agents, LangSmith tracing, Flutter mobile development, NLP, and computer vision, with a focus on turning AI prototypes into complete, usable software systems.",
   },
@@ -123,6 +130,10 @@ export const portfolioData = {
         "A caller speaks Urdu, English, or Spanish, books a room by voice, and gets an instant WhatsApp confirmation. Every reservation is logged to Google Sheets, and the agent recovers gracefully if the booking webhook fails.",
       links: [{ label: "Code", href: `${GH}/Hotel_Voice_Agent-Zara-`, kind: "code" }],
       flow: voiceAgentFlow,
+      highlights: {
+        items: ["Urdu", "English", "Spanish"],
+        caption: "Detects the caller's language and replies in it, then confirms the booking on WhatsApp.",
+      },
     },
     {
       slug: "ai-workspace-management-platform",
@@ -290,26 +301,82 @@ export const portfolioData = {
     },
   ],
 
+  // Roles and dates as listed on LinkedIn (linkedin.com/in/aliraza-aiengineer), newest first.
   experience: [
     {
-      role: "Machine Learning Engineer Intern",
-      company: "Developers Hub Corporation (Remote)",
-      period: "2025",
-      description:
-        "Built an end-to-end IMDB sentiment system using TF-IDF features, linear classifiers, and a Streamlit interface; developed ML workflows for NLP, classification, and clustering with reproducible prediction pipelines.",
+      role: "AI Operations Specialist",
+      focus: "Automation & AI Workflow Development",
+      company: "Signature BPO & Marketing Services",
+      type: "Full-time",
+      period: "Oct 2026 – Present",
+      location: "Jhang, Punjab, Pakistan (On-site)",
+      current: true,
+      bullets: [
+        "Develop and implement AI-powered automation workflows to improve operational efficiency.",
+        "Integrate AI tools and applications with existing business systems and platforms.",
+        "Automate repetitive manual tasks and streamline business processes.",
+        "Design, test, maintain, and continuously optimize automated workflows, and troubleshoot issues for reliable performance.",
+        "Identify opportunities for AI solutions across departments and maintain technical documentation.",
+      ],
+      stack: ["Workflow Automation", "n8n"],
+    },
+    {
+      role: "Full-Stack AI Engineer",
+      focus: "Freelance",
+      company: "Self-employed",
+      type: "Freelance",
+      period: "Jan 2025 – Present",
+      location: "Multan, Punjab, Pakistan (Remote)",
+      current: true,
+      bullets: [
+        "Build and ship AI products end to end for clients in real estate, hospitality, and internal operations.",
+        "Designed a reusable GoHighLevel real estate CRM snapshot: 14 workflows, 3 pipelines, 53 custom fields, 41 tags, 4 calendars, 6 landing pages, and 32 message templates, driven by one 30-value configuration table that cut new-client onboarding from a full day to under an hour.",
+        "Built a multilingual hotel receptionist voice agent that answers inbound calls, books rooms, and confirms over WhatsApp in Urdu, English, and Spanish.",
+        "Engineered sub-60-second speed-to-lead automation with a Conversation AI qualifier, lead scoring, human escalation rules, no-show recovery, and 45-day nurture sequences.",
+        "Shipped an AI-powered workspace platform (FastAPI, React, PostgreSQL, Redis, Celery) with JWT auth, role-aware authorization, real-time WebSockets, and Groq-powered insights, containerized with Docker Compose.",
+      ],
+      stack: ["Python", "FastAPI", "React", "LangGraph", "LiveKit", "n8n", "GoHighLevel", "PostgreSQL", "Redis", "Docker"],
     },
     {
       role: "Machine Learning Engineer Intern",
-      company: "Code Alpha (Remote)",
-      period: "2025",
-      description:
-        "Delivered projects in heart-disease prediction, agricultural image recognition, and speech-emotion recognition, training logistic-regression, CNN, and LSTM models with structured preprocessing and performance analysis.",
+      focus: "Internship",
+      company: "DevelopersHub Corporation",
+      type: "Internship",
+      period: "Mar 2025 – May 2025",
+      location: "Remote",
+      current: false,
+      bullets: [
+        "Built an end-to-end IMDB sentiment analysis system using TF-IDF features and linear classifiers, served through a Streamlit interface.",
+        "Developed reproducible ML workflows for NLP, classification, and clustering tasks, with structured preprocessing and prediction pipelines.",
+        "Completed the six-week AI & Machine Learning program with a Best Award certificate for exceptional performance.",
+      ],
+      stack: ["Python", "scikit-learn", "NLP", "Pandas", "Streamlit"],
+    },
+    {
+      role: "Machine Learning Engineer Intern",
+      focus: "Internship",
+      company: "CodeAlpha",
+      type: "Internship",
+      period: "Apr 2025",
+      location: "Remote",
+      current: false,
+      bullets: [
+        "Built a heart-disease prediction model with logistic regression over structured clinical features, with full preprocessing and performance analysis.",
+        "Trained CNN models for agricultural image recognition and LSTM models for speech-emotion recognition.",
+        "Received a Letter of Recommendation and a Certificate of Completion.",
+      ],
+      stack: ["Python", "TensorFlow", "Deep Learning", "Computer Vision", "Pandas"],
     },
   ],
 
   education: [
     { degree: "BS Software Engineering", institution: "The Islamia University of Bahawalpur", period: "2023–2027" },
     { degree: "FSc Pre-Engineering", institution: "KIPS College", period: "2021–2023" },
+  ],
+
+  honors: [
+    { title: "Best Award", detail: "DevelopersHub Corporation AI & Machine Learning Internship" },
+    { title: "Letter of Recommendation", detail: "CodeAlpha Machine Learning Internship" },
   ],
 
   certifications: [
