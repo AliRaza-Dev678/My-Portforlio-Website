@@ -3,75 +3,80 @@
 @tailwind utilities;
 
 /*
-  One identity, two modes: ink navy, fog white, and a single signal-amber accent.
-  --primary is the amber fill (buttons, markers). --link is the amber that is
-  safe to use as text on the current background.
+  Identity: cool paper, deep ink, and one electric ultramarine.
+  --primary is the ultramarine fill (buttons, hero and booking blocks).
+  --link is the ultramarine that is safe to use as text on the current background.
+  --signal is the surface colour of the two bookend blocks (hero and booking).
 */
 @layer base {
   :root {
-    --background: 216 33% 97%;
-    --foreground: 211 53% 11%;
+    --background: 225 20% 96%;
+    --foreground: 232 38% 10%;
 
     --card: 0 0% 100%;
-    --card-foreground: 211 53% 11%;
+    --card-foreground: 232 38% 10%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 211 53% 11%;
+    --popover-foreground: 232 38% 10%;
 
-    --primary: 39 100% 56%;
-    --primary-foreground: 211 53% 11%;
+    --primary: 233 74% 53%;
+    --primary-foreground: 0 0% 100%;
 
-    --link: 36 100% 27%;
+    --link: 233 74% 48%;
+    --signal: 233 74% 50%;
+    --signal-foreground: 0 0% 100%;
 
-    --secondary: 213 33% 92%;
-    --secondary-foreground: 211 53% 11%;
+    --secondary: 228 24% 91%;
+    --secondary-foreground: 232 38% 10%;
 
-    --muted: 213 33% 92%;
-    --muted-foreground: 212 18% 34%;
+    --muted: 228 24% 91%;
+    --muted-foreground: 228 14% 36%;
 
-    --accent: 213 33% 92%;
-    --accent-foreground: 211 53% 11%;
+    --accent: 233 80% 95%;
+    --accent-foreground: 233 74% 40%;
 
     --destructive: 0 72% 42%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 213 27% 85%;
-    --input: 213 27% 85%;
-    --ring: 36 100% 27%;
+    --border: 228 20% 86%;
+    --input: 228 20% 86%;
+    --ring: 233 74% 48%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
   }
 
   .dark {
-    --background: 211 53% 11%;
-    --foreground: 216 33% 97%;
+    --background: 232 38% 7%;
+    --foreground: 228 40% 95%;
 
-    --card: 210 47% 15%;
-    --card-foreground: 216 33% 97%;
+    --card: 232 32% 11%;
+    --card-foreground: 228 40% 95%;
 
-    --popover: 210 47% 15%;
-    --popover-foreground: 216 33% 97%;
+    --popover: 232 32% 11%;
+    --popover-foreground: 228 40% 95%;
 
-    --primary: 39 100% 56%;
-    --primary-foreground: 211 53% 11%;
+    --primary: 233 100% 77%;
+    --primary-foreground: 232 38% 8%;
 
-    --link: 39 100% 56%;
+    --link: 233 100% 79%;
+    --signal: 233 66% 42%;
+    --signal-foreground: 0 0% 100%;
 
-    --secondary: 212 45% 19%;
-    --secondary-foreground: 216 33% 97%;
+    --secondary: 232 28% 15%;
+    --secondary-foreground: 228 40% 95%;
 
-    --muted: 212 45% 19%;
-    --muted-foreground: 211 21% 74%;
+    --muted: 232 28% 15%;
+    --muted-foreground: 229 20% 70%;
 
-    --accent: 212 45% 19%;
-    --accent-foreground: 216 33% 97%;
+    --accent: 233 40% 18%;
+    --accent-foreground: 233 100% 85%;
 
     --destructive: 0 80% 70%;
-    --destructive-foreground: 211 53% 11%;
+    --destructive-foreground: 232 38% 8%;
 
-    --border: 212 39% 25%;
-    --input: 212 39% 25%;
-    --ring: 39 100% 56%;
+    --border: 232 24% 20%;
+    --input: 232 24% 20%;
+    --ring: 233 100% 77%;
   }
 }
 
@@ -89,7 +94,7 @@
   h1,
   h2,
   h3 {
-    font-family: var(--font-display), var(--font-body), system-ui, sans-serif;
+    font-family: var(--font-body), system-ui, sans-serif;
     text-wrap: balance;
   }
   :focus-visible {
@@ -101,13 +106,20 @@
 @layer components {
   /* Page column shared by every section. */
   .shell {
-    @apply mx-auto w-full max-w-6xl px-5 md:px-8;
+    @apply mx-auto w-full max-w-6xl px-4 sm:px-5 md:px-8;
   }
   .section {
-    @apply border-t border-border py-16 md:py-24;
+    @apply py-20 md:py-28;
   }
   .section-title {
-    @apply text-3xl font-semibold tracking-tight md:text-4xl;
+    @apply font-display text-[2rem] font-extrabold leading-[1.02] tracking-[-0.02em] md:text-5xl;
+    font-stretch: 112%;
+  }
+  .section-lede {
+    @apply mt-4 max-w-2xl text-lg leading-relaxed text-muted-foreground;
+  }
+  .wide {
+    font-stretch: 125%;
   }
   .text-link {
     @apply font-medium underline decoration-1 underline-offset-4;
@@ -117,47 +129,60 @@
     @apply decoration-2;
   }
   .chip {
-    @apply inline-flex items-center rounded-full border border-border bg-card px-3 py-1 text-sm text-foreground;
+    @apply inline-flex items-center rounded-md border border-border bg-card px-2.5 py-1 text-sm text-foreground;
+  }
+  /* The two ultramarine bookends: hero and booking. */
+  .signal-block {
+    background-color: hsl(var(--signal));
+    color: hsl(var(--signal-foreground));
+  }
+  .signal-grid {
+    background-image:
+      linear-gradient(to right, rgb(255 255 255 / 0.07) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(255 255 255 / 0.07) 1px, transparent 1px);
+    background-size: 56px 56px;
   }
 }
 
-/* Hero trace: the one piece of page-load motion. Steps light up in order, once. */
-@keyframes trace-step {
-  from {
-    opacity: 0.3;
-  }
-  to {
-    opacity: 1;
-  }
+/*
+  Hero signal: the page's one orchestrated motion. A pulse runs the voice
+  agent's pipeline left to right and each stage lights as it passes.
+*/
+@keyframes signal-run {
+  0% { stroke-dashoffset: 1000; opacity: 1; }
+  70% { stroke-dashoffset: 0; opacity: 1; }
+  100% { stroke-dashoffset: 0; opacity: 0; }
 }
-@keyframes trace-node {
-  from {
-    background-color: transparent;
-  }
-  to {
-    background-color: hsl(var(--primary));
-  }
+@keyframes node-on {
+  0%, 100% { background-color: hsl(var(--signal)); color: #fff; }
+  3%, 24% { background-color: #fff; color: hsl(var(--signal)); }
+  28% { background-color: hsl(var(--signal)); color: #fff; }
 }
-.trace-step {
-  opacity: 0.3;
-  animation: trace-step 0.5s ease-out forwards;
-  animation-delay: calc(var(--i) * 0.8s + 0.4s);
+@keyframes live {
+  0% { box-shadow: 0 0 0 0 rgb(255 255 255 / 0.7); }
+  70%, 100% { box-shadow: 0 0 0 8px rgb(255 255 255 / 0); }
 }
-.trace-node {
-  animation: trace-node 0.3s ease-out forwards;
-  animation-delay: calc(var(--i) * 0.8s + 0.4s);
+.signal-pulse {
+  stroke-dasharray: 120 1000;
+  animation: signal-run 4.8s cubic-bezier(.55,.1,.35,1) 0.6s infinite;
+}
+.signal-node {
+  animation: node-on 4.8s ease-in-out infinite;
+  animation-delay: calc(var(--i) * 0.84s + 0.6s);
+}
+.live-dot {
+  animation: live 2s ease-out infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
   }
-  .trace-step {
-    opacity: 1;
-    animation: none;
+  .signal-pulse {
+    display: none;
   }
-  .trace-node {
-    background-color: hsl(var(--primary));
+  .signal-node,
+  .live-dot {
     animation: none;
   }
   *,

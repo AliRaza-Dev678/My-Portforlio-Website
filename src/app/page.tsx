@@ -34,17 +34,18 @@ export default function Home() {
             name: education[0].institution,
           },
           sameAs: [personal.github, personal.linkedin],
+          worksFor: { "@type": "Organization", name: personal.current.company },
           knowsAbout: skills.map((s) => s.group),
         }}
       />
-      <Navbar />
+      <Navbar overHero />
       <main id="main">
         <HeroSection />
         <ProofStrip />
         <CaseStudiesSection />
-        <MoreProjectsSection />
-        <SkillsSection />
         <ExperienceSection />
+        <SkillsSection />
+        <MoreProjectsSection />
         <EducationSection />
         <BookingSection />
       </main>
