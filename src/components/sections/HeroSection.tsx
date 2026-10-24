@@ -19,7 +19,7 @@ export function HeroSection() {
         <div className="grid items-center gap-8 lg:grid-cols-12 lg:gap-6">
           <div className="lg:col-span-7">
             <p className="inline-flex max-w-full items-center gap-3 rounded-full border border-white/25 bg-white/10 py-1.5 pl-3 pr-4 text-sm">
-              <span className="live-dot h-2 w-2 shrink-0 rounded-full bg-white" aria-hidden="true" />
+              <span className="live-dot h-2 w-2 shrink-0 rounded-full bg-primary" aria-hidden="true" />
               <span className="min-w-0">
                 Now: {personal.current.role} at {personal.current.company}, on-site in {personal.current.city}
               </span>
@@ -79,7 +79,7 @@ export function HeroSection() {
               aria-hidden="true"
             >
               <line x1="0" y1="1" x2="1000" y2="1" stroke="rgb(255 255 255 / 0.3)" strokeWidth="2" vectorEffect="non-scaling-stroke" />
-              <line className="signal-pulse" x1="0" y1="1" x2="1000" y2="1" pathLength={1000} stroke="#fff" strokeWidth="3" strokeLinecap="round" vectorEffect="non-scaling-stroke" />
+              <line className="signal-pulse" x1="0" y1="1" x2="1000" y2="1" pathLength={1000} stroke="hsl(var(--primary))" strokeWidth="3" strokeLinecap="round" vectorEffect="non-scaling-stroke" />
             </svg>
             <svg
               className="absolute left-[27px] top-10 h-[calc(100%-5rem)] w-px overflow-visible md:hidden"
@@ -88,7 +88,7 @@ export function HeroSection() {
               aria-hidden="true"
             >
               <line x1="1" y1="0" x2="1" y2="1000" stroke="rgb(255 255 255 / 0.3)" strokeWidth="2" vectorEffect="non-scaling-stroke" />
-              <line className="signal-pulse" x1="1" y1="0" x2="1" y2="1000" pathLength={1000} stroke="#fff" strokeWidth="3" strokeLinecap="round" vectorEffect="non-scaling-stroke" />
+              <line className="signal-pulse" x1="1" y1="0" x2="1" y2="1000" pathLength={1000} stroke="hsl(var(--primary))" strokeWidth="3" strokeLinecap="round" vectorEffect="non-scaling-stroke" />
             </svg>
 
             <ol className="relative grid gap-3 md:grid-cols-5 md:gap-4">
