@@ -3,80 +3,80 @@
 @tailwind utilities;
 
 /*
-  Identity: cool paper, deep ink, and one electric ultramarine.
-  --primary is the ultramarine fill (buttons, hero and booking blocks).
-  --link is the ultramarine that is safe to use as text on the current background.
-  --signal is the surface colour of the two bookend blocks (hero and booking).
+  Identity: deep petrol teal and one signal orange, on cool paper.
+  --primary is the orange fill (buttons, markers, timeline).
+  --link is the orange that is safe as text on the current background.
+  --signal is the petrol surface of the bookend blocks (hero, booking, case headers).
 */
 @layer base {
   :root {
-    --background: 225 20% 96%;
-    --foreground: 232 38% 10%;
+    --background: 150 8% 96%;
+    --foreground: 190 49% 9%;
 
     --card: 0 0% 100%;
-    --card-foreground: 232 38% 10%;
+    --card-foreground: 190 49% 9%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 232 38% 10%;
+    --popover-foreground: 190 49% 9%;
 
-    --primary: 233 74% 53%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 25 100% 55%;
+    --primary-foreground: 190 49% 9%;
 
-    --link: 233 74% 48%;
-    --signal: 233 74% 50%;
+    --link: 22 88% 37%;
+    --signal: 190 65% 16%;
     --signal-foreground: 0 0% 100%;
 
-    --secondary: 228 24% 91%;
-    --secondary-foreground: 232 38% 10%;
+    --secondary: 170 12% 91%;
+    --secondary-foreground: 190 49% 9%;
 
-    --muted: 228 24% 91%;
-    --muted-foreground: 228 14% 36%;
+    --muted: 170 12% 91%;
+    --muted-foreground: 190 12% 33%;
 
-    --accent: 233 80% 95%;
-    --accent-foreground: 233 74% 40%;
+    --accent: 25 100% 95%;
+    --accent-foreground: 22 85% 30%;
 
     --destructive: 0 72% 42%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 228 20% 86%;
-    --input: 228 20% 86%;
-    --ring: 233 74% 48%;
+    --border: 180 10% 86%;
+    --input: 180 10% 86%;
+    --ring: 22 88% 40%;
 
     --radius: 0.75rem;
   }
 
   .dark {
-    --background: 232 38% 7%;
-    --foreground: 228 40% 95%;
+    --background: 190 55% 6%;
+    --foreground: 160 15% 94%;
 
-    --card: 232 32% 11%;
-    --card-foreground: 228 40% 95%;
+    --card: 190 45% 9%;
+    --card-foreground: 160 15% 94%;
 
-    --popover: 232 32% 11%;
-    --popover-foreground: 228 40% 95%;
+    --popover: 190 45% 9%;
+    --popover-foreground: 160 15% 94%;
 
-    --primary: 233 100% 77%;
-    --primary-foreground: 232 38% 8%;
+    --primary: 25 100% 58%;
+    --primary-foreground: 190 49% 9%;
 
-    --link: 233 100% 79%;
-    --signal: 233 66% 42%;
+    --link: 25 100% 64%;
+    --signal: 190 62% 12%;
     --signal-foreground: 0 0% 100%;
 
-    --secondary: 232 28% 15%;
-    --secondary-foreground: 228 40% 95%;
+    --secondary: 190 30% 13%;
+    --secondary-foreground: 160 15% 94%;
 
-    --muted: 232 28% 15%;
-    --muted-foreground: 229 20% 70%;
+    --muted: 190 30% 13%;
+    --muted-foreground: 180 10% 68%;
 
-    --accent: 233 40% 18%;
-    --accent-foreground: 233 100% 85%;
+    --accent: 190 42% 12%;
+    --accent-foreground: 25 100% 72%;
 
     --destructive: 0 80% 70%;
-    --destructive-foreground: 232 38% 8%;
+    --destructive-foreground: 190 49% 9%;
 
-    --border: 232 24% 20%;
-    --input: 232 24% 20%;
-    --ring: 233 100% 77%;
+    --border: 190 30% 17%;
+    --input: 190 30% 17%;
+    --ring: 25 100% 64%;
   }
 }
 
@@ -131,7 +131,7 @@
   .chip {
     @apply inline-flex items-center rounded-md border border-border bg-card px-2.5 py-1 text-sm text-foreground;
   }
-  /* The two ultramarine bookends: hero and booking. */
+  /* The petrol bookends: hero and booking. */
   .signal-block {
     background-color: hsl(var(--signal));
     color: hsl(var(--signal-foreground));
@@ -155,12 +155,12 @@
 }
 @keyframes node-on {
   0%, 100% { background-color: hsl(var(--signal)); color: #fff; }
-  3%, 24% { background-color: #fff; color: hsl(var(--signal)); }
+  3%, 24% { background-color: hsl(var(--primary)); color: hsl(var(--primary-foreground)); }
   28% { background-color: hsl(var(--signal)); color: #fff; }
 }
 @keyframes live {
-  0% { box-shadow: 0 0 0 0 rgb(255 255 255 / 0.7); }
-  70%, 100% { box-shadow: 0 0 0 8px rgb(255 255 255 / 0); }
+  0% { box-shadow: 0 0 0 0 hsl(var(--primary) / 0.8); }
+  70%, 100% { box-shadow: 0 0 0 8px hsl(var(--primary) / 0); }
 }
 .signal-pulse {
   stroke-dasharray: 120 1000;
