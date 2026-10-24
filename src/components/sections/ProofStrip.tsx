@@ -26,20 +26,20 @@ const STACK = [
 
 export function ProofStrip() {
   return (
-    <section aria-label="Key numbers and core stack" className="border-t border-border bg-card">
-      <div className="shell py-10 md:py-12">
-        <dl className="grid gap-x-8 gap-y-8 sm:grid-cols-2 lg:grid-cols-5">
+    <section aria-label="Key numbers and core stack" className="border-b border-border bg-card">
+      <div className="shell py-12 md:py-16">
+        <dl className="grid gap-y-8 sm:grid-cols-2 lg:grid-cols-5 lg:divide-x lg:divide-border">
           {portfolioData.proof.map((item) => (
-            <div key={item.value} className="flex flex-col-reverse justify-end">
+            <div key={item.value} className="flex flex-col-reverse justify-end sm:pr-6 lg:px-6 lg:first:pl-0 lg:last:pr-0">
               <dt className="mt-2 text-sm leading-snug text-muted-foreground">{item.label}</dt>
-              <dd className="font-display text-2xl font-semibold tracking-tight md:text-[1.7rem]">
+              <dd className="text-[1.75rem] font-extrabold leading-none tracking-[-0.03em] text-[hsl(var(--link))] [font-stretch:108%] lg:text-[1.7rem] xl:text-3xl">
                 {item.value}
               </dd>
             </div>
           ))}
         </dl>
 
-        <ul className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3 border-t border-border pt-8 text-sm text-muted-foreground">
+        <ul className="mt-12 flex flex-wrap items-center gap-x-7 gap-y-4 border-t border-border pt-8 text-sm font-medium text-muted-foreground">
           {STACK.map(({ name, Icon }) => (
             <li key={name} className="inline-flex items-center gap-2">
               {Icon && <Icon className="h-[18px] w-[18px]" aria-hidden="true" />}

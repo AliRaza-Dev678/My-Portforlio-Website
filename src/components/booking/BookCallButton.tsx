@@ -11,7 +11,7 @@ type Props = {
   /** Where on the site this button sits. Sent to Calendly as utm_content. */
   section: string;
   label?: string;
-  variant?: "default" | "outline" | "link";
+  variant?: "default" | "outline" | "link" | "inverse" | "inverseOutline";
   size?: "default" | "sm" | "lg";
   icon?: boolean;
   className?: string;

@@ -7,7 +7,7 @@ export function Footer() {
   const linkClass = "inline-flex items-center gap-2 text-sm hover:underline hover:underline-offset-4";
 
   return (
-    <footer className="border-t border-border bg-card pb-24 pt-10 md:pb-10">
+    <footer className="bg-background pb-24 pt-10 md:pb-10">
       <div className="shell flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
         <p className="text-sm text-muted-foreground">
           &copy; {new Date().getFullYear()} {personal.name}, {personal.title}

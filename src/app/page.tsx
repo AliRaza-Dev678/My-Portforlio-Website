@@ -2,6 +2,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { ProofStrip } from "@/components/sections/ProofStrip";
+import { CurrentRoleSection } from "@/components/sections/CurrentRoleSection";
 import { CaseStudiesSection } from "@/components/sections/CaseStudiesSection";
 import { MoreProjectsSection } from "@/components/sections/MoreProjectsSection";
 import { SkillsSection } from "@/components/sections/SkillsSection";
@@ -34,17 +35,19 @@ export default function Home() {
             name: education[0].institution,
           },
           sameAs: [personal.github, personal.linkedin],
+          worksFor: { "@type": "Organization", name: personal.current.company },
           knowsAbout: skills.map((s) => s.group),
         }}
       />
-      <Navbar />
+      <Navbar overHero />
       <main id="main">
         <HeroSection />
+        <CurrentRoleSection />
         <ProofStrip />
         <CaseStudiesSection />
-        <MoreProjectsSection />
-        <SkillsSection />
         <ExperienceSection />
+        <SkillsSection />
+        <MoreProjectsSection />
         <EducationSection />
         <BookingSection />
       </main>

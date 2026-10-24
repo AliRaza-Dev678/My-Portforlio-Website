@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
-import { Bricolage_Grotesque } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
@@ -8,17 +7,14 @@ import { RazaMindChatbot } from "@/components/RazaMindChatbot";
 import { CalendlyProvider } from "@/components/booking/CalendlyProvider";
 import { portfolioData, site } from "@/data/portfolio";
 
-const body = localFont({
-  src: "./fonts/GeistVF.woff",
+// One family, two voices: Archivo at normal width for reading, stretched wide for display.
+// Self-hosted variable font (wght 100–900, wdth 62–125). SIL Open Font License.
+const archivo = localFont({
+  src: "./fonts/ArchivoVF.woff2",
   variable: "--font-body",
   weight: "100 900",
   display: "swap",
-});
-
-const display = Bricolage_Grotesque({
-  subsets: ["latin"],
-  variable: "--font-display",
-  display: "swap",
+  declarations: [{ prop: "font-stretch", value: "62% 125%" }],
 });
 
 const { name, title } = portfolioData.personal;
@@ -42,6 +38,8 @@ export const metadata: Metadata = {
     "FastAPI",
     "Next.js",
     "LangGraph",
+    "AI automation",
+    "AI Operations Specialist",
   ],
   authors: [{ name, url: site.url }],
   creator: name,
@@ -64,15 +62,15 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#f5f7fa" },
-    { media: "(prefers-color-scheme: dark)", color: "#0d1b2a" },
+    { media: "(prefers-color-scheme: light)", color: "#f4f6f5" },
+    { media: "(prefers-color-scheme: dark)", color: "#071a1e" },
   ],
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${body.variable} ${display.variable} font-sans antialiased`}>
+      <body className={`${archivo.variable} font-sans antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
           <a
             href="#main"
