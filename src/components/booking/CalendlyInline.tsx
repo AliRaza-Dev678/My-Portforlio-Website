@@ -51,11 +51,11 @@ export function CalendlyInline({ section = "booking-section" }: { section?: stri
   }, [near, ready, resolvedTheme, section]);
 
   return (
-    <div className="overflow-hidden rounded-lg border border-border bg-card">
+    <div className="overflow-hidden rounded-2xl bg-card text-card-foreground shadow-[0_30px_80px_-20px_rgb(0_0_0/0.45)]">
       <div ref={container} className="h-[700px] w-full [&>iframe]:h-full [&>iframe]:w-full" />
       <noscript>
         <p className="p-6">
-          <a href={calendlyUrl(section)}>Open the booking page on Calendly</a>
+          <a href={calendlyUrl(section)} className="text-link">Open the booking page on Calendly</a>
         </p>
       </noscript>
     </div>
