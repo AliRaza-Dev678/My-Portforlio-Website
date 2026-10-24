@@ -3,6 +3,7 @@ import { PlayCircle } from "lucide-react";
 import { portfolioData, type CaseStudy } from "@/data/portfolio";
 import { ProjectLinks, StackChips } from "@/components/ProjectLinks";
 import { BookCallButton } from "@/components/booking/BookCallButton";
+import { TiltCard } from "@/components/TiltCard";
 
 function CaseLinks({ study }: { study: CaseStudy }) {
   return (
@@ -28,6 +29,7 @@ function CaseLinks({ study }: { study: CaseStudy }) {
 /** The two lead projects get a wide panel. */
 function FeaturedCase({ study }: { study: CaseStudy }) {
   return (
+    <TiltCard max={2.5} className="rounded-2xl">
     <article className="grid overflow-hidden rounded-2xl border border-border bg-card lg:grid-cols-12">
       <div className="p-6 md:p-10 lg:col-span-7">
         <h3 className="wide text-2xl font-extrabold leading-[1.08] tracking-[-0.02em] md:text-[2rem]">
@@ -70,12 +72,14 @@ function FeaturedCase({ study }: { study: CaseStudy }) {
         <BookCallButton section={`home-${study.slug}`} label="Book a call about this" className="self-start" />
       </div>
     </article>
+    </TiltCard>
   );
 }
 
 function CompactCase({ study }: { study: CaseStudy }) {
   return (
-    <article className="flex flex-col rounded-xl border border-border bg-card p-6 md:p-8">
+    <TiltCard className="h-full rounded-xl">
+    <article className="flex h-full flex-col rounded-xl border border-border bg-card p-6 md:p-8">
       <h3 className="wide text-xl font-extrabold leading-tight tracking-[-0.015em] md:text-[1.4rem]">
         <Link href={`/projects/${study.slug}`} className="hover:text-link">
           {study.title}
@@ -90,6 +94,7 @@ function CompactCase({ study }: { study: CaseStudy }) {
         <CaseLinks study={study} />
       </div>
     </article>
+    </TiltCard>
   );
 }
 

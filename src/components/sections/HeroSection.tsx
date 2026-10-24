@@ -5,6 +5,7 @@ import { portfolioData } from "@/data/portfolio";
 import { buttonVariants } from "@/components/ui/button";
 import { BookCallButton } from "@/components/booking/BookCallButton";
 import { cn } from "@/lib/utils";
+import { HeroScene } from "@/components/HeroScene";
 
 export function HeroSection() {
   const { personal, heroTrace } = portfolioData;
@@ -15,16 +16,16 @@ export function HeroSection() {
       <div className="signal-grid pointer-events-none absolute inset-0 [mask-image:linear-gradient(to_bottom,black,transparent_85%)]" aria-hidden="true" />
 
       <div className="shell relative pb-14 pt-28 md:pb-20 md:pt-36">
-        <div className="grid gap-10 lg:grid-cols-12 lg:gap-12">
-          <div className="lg:col-span-8">
+        <div className="grid items-center gap-8 lg:grid-cols-12 lg:gap-6">
+          <div className="lg:col-span-7">
             <p className="inline-flex max-w-full items-center gap-3 rounded-full border border-white/25 bg-white/10 py-1.5 pl-3 pr-4 text-sm">
               <span className="live-dot h-2 w-2 shrink-0 rounded-full bg-white" aria-hidden="true" />
               <span className="min-w-0">
-                Now: {personal.current.role} at {personal.current.company}
+                Now: {personal.current.role} at {personal.current.company}, on-site in {personal.current.city}
               </span>
             </p>
 
-            <h1 className="wide mt-8 text-[2.35rem] font-extrabold leading-[0.98] tracking-[-0.035em] sm:text-6xl lg:text-[4.25rem]">
+            <h1 className="wide mt-8 text-[2.35rem] font-extrabold leading-[0.98] tracking-[-0.035em] sm:text-6xl lg:text-[3.9rem] xl:text-[4.25rem]">
               {personal.pitch}
             </h1>
 
@@ -34,36 +35,41 @@ export function HeroSection() {
 
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <BookCallButton section="hero" size="lg" variant="inverse" />
-              <Link href="/#work" className={cn(buttonVariants({ variant: "inverseOutline", size: "lg" }))}>
-                View projects
+              <Link href="/#now" className={cn(buttonVariants({ variant: "inverseOutline", size: "lg" }))}>
+                See my current role
               </Link>
             </div>
           </div>
 
-          <aside className="flex items-end lg:col-span-4" aria-label="Profile">
-            <div className="flex w-full items-center gap-4 rounded-2xl border border-white/20 bg-white/[0.07] p-4 lg:flex-col lg:items-start lg:p-5">
+          {/* 3D network globe with the profile card floating over its base. */}
+          <div className="relative lg:col-span-5">
+            <HeroScene className="mx-auto aspect-square w-full max-w-[460px] lg:-mr-12 lg:w-[112%] lg:max-w-none" />
+            <aside
+              aria-label="Profile"
+              className="relative z-10 mx-auto -mt-6 flex max-w-sm items-center gap-4 rounded-2xl border border-white/25 p-3 pr-5 backdrop-blur-md lg:-mt-14"
+              style={{ backgroundColor: "hsl(var(--signal) / 0.78)" }}
+            >
               <Image
                 src="/profile.jpg"
                 alt={`Portrait of ${personal.name}`}
-                width={320}
-                height={320}
+                width={128}
+                height={128}
                 priority
-                sizes="(min-width: 1024px) 280px, 72px"
-                className="h-[72px] w-[72px] shrink-0 rounded-xl object-cover object-top lg:aspect-square lg:h-auto lg:w-full"
+                className="h-16 w-16 shrink-0 rounded-xl object-cover object-top"
               />
               <div className="min-w-0">
-                <p className="wide text-lg font-bold leading-tight">{personal.name}</p>
-                <p className="mt-0.5 text-white/80">{personal.title}</p>
-                <p className="mt-2 inline-flex items-center gap-1.5 text-sm text-white/70">
-                  <MapPin className="h-3.5 w-3.5" aria-hidden="true" />
-                  {personal.location}, open to remote roles
+                <p className="wide font-bold leading-tight">{personal.name}</p>
+                <p className="mt-0.5 text-sm text-white/85">{personal.current.role}, {personal.current.company}</p>
+                <p className="mt-1 inline-flex items-center gap-1.5 text-xs text-white/70">
+                  <MapPin className="h-3 w-3" aria-hidden="true" />
+                  {personal.current.city}, Pakistan, open to remote roles
                 </p>
               </div>
-            </div>
-          </aside>
+            </aside>
+          </div>
         </div>
 
-        {/* A real pipeline from the voice agent project. The pulse is the page's one animation. */}
+        {/* A real pipeline from the voice agent project.  */}
         <figure className="mt-14 md:mt-20">
           <div className="relative">
             <svg
