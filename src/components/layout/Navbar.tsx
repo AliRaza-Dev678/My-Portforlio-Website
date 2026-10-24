@@ -8,6 +8,7 @@ import { BookCallButton } from "@/components/booking/BookCallButton";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
+  { name: "Now", href: "/#now" },
   { name: "Work", href: "/#work" },
   { name: "Experience", href: "/#experience" },
   { name: "Skills", href: "/#skills" },
