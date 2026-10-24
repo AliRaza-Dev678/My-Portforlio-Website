@@ -2,6 +2,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { ProofStrip } from "@/components/sections/ProofStrip";
+import { CurrentRoleSection } from "@/components/sections/CurrentRoleSection";
 import { CaseStudiesSection } from "@/components/sections/CaseStudiesSection";
 import { MoreProjectsSection } from "@/components/sections/MoreProjectsSection";
 import { SkillsSection } from "@/components/sections/SkillsSection";
@@ -41,6 +42,7 @@ export default function Home() {
       <Navbar overHero />
       <main id="main">
         <HeroSection />
+        <CurrentRoleSection />
         <ProofStrip />
         <CaseStudiesSection />
         <ExperienceSection />
