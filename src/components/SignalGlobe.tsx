@@ -7,7 +7,7 @@ import * as THREE from "three";
 /*
   A network globe: nodes on a sphere, wired to their nearest neighbours, with
   pulses travelling between nodes like calls moving through a pipeline.
-  Drawn in white on the ultramarine hero. Pointer tilts it; it rotates slowly.
+  Drawn in white on the petrol hero, with signal-orange pulses. Pointer tilts it; it rotates slowly.
 */
 
 const NODE_COUNT = 380;
@@ -188,8 +188,8 @@ function Network({ animate }: { animate: boolean }) {
 
       {Array.from({ length: PULSES }).map((_, k) => (
         <mesh key={k} ref={(m) => { pulseMeshes.current[k] = m; }}>
-          <sphereGeometry args={[0.032, 12, 12]} />
-          <meshBasicMaterial color="#ffffff" />
+          <sphereGeometry args={[0.036, 12, 12]} />
+          <meshBasicMaterial color="#ff7a1a" />
         </mesh>
       ))}
 
@@ -202,8 +202,8 @@ function Network({ animate }: { animate: boolean }) {
         <meshBasicMaterial color="#ffffff" transparent opacity={0.18} />
       </mesh>
       <mesh ref={satellite}>
-        <sphereGeometry args={[0.05, 16, 16]} />
-        <meshBasicMaterial color="#ffffff" />
+        <sphereGeometry args={[0.055, 16, 16]} />
+        <meshBasicMaterial color="#ff7a1a" />
       </mesh>
     </group>
   );
