@@ -2,8 +2,8 @@ import { site } from "@/data/portfolio";
 
 // Calendly reads these as hex values without the leading "#".
 const THEME = {
-  light: { background_color: "ffffff", text_color: "0d1b2a", primary_color: "8a5200" },
-  dark: { background_color: "0d1b2a", text_color: "f5f7fa", primary_color: "ffb020" },
+  light: { background_color: "ffffff", text_color: "0f1222", primary_color: "2d43d6" },
+  dark: { background_color: "13162a", text_color: "eceef6", primary_color: "8b9bff" },
 } as const;
 
 export type BookingTheme = keyof typeof THEME;
