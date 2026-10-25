@@ -313,7 +313,7 @@ export const portfolioData = {
       focus: "Automation & AI Workflow Development",
       company: "Signature BPO & Marketing Services",
       type: "Full-time",
-      period: "Oct 2026 – Present",
+      period: "Oct 2026 - Present",
       location: "Jhang, Punjab, Pakistan (On-site)",
       current: true,
       bullets: [
@@ -330,7 +330,7 @@ export const portfolioData = {
       focus: "Freelance",
       company: "Self-employed",
       type: "Freelance",
-      period: "Jan 2025 – Present",
+      period: "Jan 2025 - Present",
       location: "Multan, Punjab, Pakistan (Remote)",
       current: true,
       bullets: [
@@ -347,7 +347,7 @@ export const portfolioData = {
       focus: "Internship",
       company: "DevelopersHub Corporation",
       type: "Internship",
-      period: "Mar 2025 – May 2025",
+      period: "Mar 2025 - May 2025",
       location: "Remote",
       current: false,
       bullets: [
@@ -375,8 +375,8 @@ export const portfolioData = {
   ],
 
   education: [
-    { degree: "BS Software Engineering", institution: "The Islamia University of Bahawalpur", period: "2023–2027" },
-    { degree: "FSc Pre-Engineering", institution: "KIPS College", period: "2021–2023" },
+    { degree: "BS Software Engineering", institution: "The Islamia University of Bahawalpur", period: "2023-2027" },
+    { degree: "FSc Pre-Engineering", institution: "KIPS College", period: "2021-2023" },
   ],
 
   honors: [
