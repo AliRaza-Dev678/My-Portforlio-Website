@@ -10,6 +10,9 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import ReactMarkdown from "react-markdown";
+
+// Keeps replies in plain punctuation: em and en dashes become commas or hyphens.
+const noDashes = (t: string) => t.replace(/\s*\u2014\s*/g, ", ").replace(/(\d)\u2013(\d)/g, "$1-$2").replace(/\s*\u2013\s*/g, " - ");
 import remarkGfm from "remark-gfm";
 
 export function RazaMindChatbot() {
@@ -115,7 +118,7 @@ export function RazaMindChatbot() {
                 }`}>
                   {m.role === "user" ? (
                     <p className="whitespace-pre-wrap">
-                      {m.parts?.filter(p => p.type === 'text').map(p => (p as any).text).join('\n') || (m as any).content || ''}
+                      {noDashes(m.parts?.filter(p => p.type === 'text').map(p => (p as any).text).join('\n') || (m as any).content || '')}
                     </p>
                   ) : (
                     <div className="prose prose-sm dark:prose-invert max-w-none prose-p:leading-relaxed prose-pre:bg-secondary/50 prose-pre:border prose-pre:border-border overflow-hidden break-words">
@@ -129,7 +132,7 @@ export function RazaMindChatbot() {
                           ),
                         }}
                       >
-                        {m.parts?.filter(p => p.type === 'text').map(p => (p as any).text).join('\n') || (m as any).content || ''}
+                        {noDashes(m.parts?.filter(p => p.type === 'text').map(p => (p as any).text).join('\n') || (m as any).content || '')}
                       </ReactMarkdown>
                     </div>
                   )}
