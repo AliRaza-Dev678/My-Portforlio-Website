@@ -8,7 +8,7 @@ import { CalendlyProvider } from "@/components/booking/CalendlyProvider";
 import { portfolioData, site } from "@/data/portfolio";
 
 // One family, two voices: Archivo at normal width for reading, stretched wide for display.
-// Self-hosted variable font (wght 100–900, wdth 62–125). SIL Open Font License.
+// Self-hosted variable font (wght 100-900, wdth 62-125). SIL Open Font License.
 const archivo = localFont({
   src: "./fonts/ArchivoVF.woff2",
   variable: "--font-body",
